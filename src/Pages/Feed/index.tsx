@@ -1,6 +1,6 @@
 import Header from "../../Components/Header";
 import Nav from "../../Components/Nav";
-import { users } from "../../Api";
+import { users, my } from "../../Api";
 import {AiOutlineRight, AiOutlineLeft,AiOutlineHeart} from "react-icons/ai";
 import {BiMessageRounded} from "react-icons/bi";
 import {MdSaveAlt} from "react-icons/md";
@@ -8,11 +8,13 @@ import {TbLocationShare} from "react-icons/tb";
 import {useRef, useEffect, useState} from "react";
 import Modal from "react-modal";
 import Stories from "../../Components/Modal/Stories";
+import MyStories from "../../Components/Modal/MyStories";
 
 function Feed(){
     const storiesRef = useRef<HTMLDivElement>(null);
     const [buttonLeftStories, setButtonLeftStories] = useState(false);
     const [modalStories, setModalStories] = useState(false);
+    const [modalMyStories, setModalMyStories] = useState(false);
     const [indexStories, setIndexStories] = useState(0);
     const [usersWithStories, setUsersWithStories] = useState(0);
     
@@ -35,6 +37,10 @@ function Feed(){
     function controlModalStories(){
         setModalStories(!modalStories);
     }
+    
+    function controlModalMyStories(){
+        setModalMyStories(!modalMyStories);
+    }
 
     function getAboutUsersStories(){
         var count = 0;
@@ -52,7 +58,7 @@ function Feed(){
 
     return(
         <>  
-            {modalStories?(
+            {modalStories || modalMyStories ?(
             null
             ):( 
                 <>
@@ -67,6 +73,14 @@ function Feed(){
                 <section className="w-full">
                     <div className="relative">    
                         <div className="flex items-center gap-6 overflow-auto scroll" ref={storiesRef}>
+
+                        <button className="flex flex-col items-center justify-center flex-shrink-0"
+                        onClick={controlModalMyStories}>
+                            <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
+                            className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
+                            <p className="text-neutral-500">Your</p>
+                        </button>
+
                             {users.map((item,index)=>{
                                 return(
                                     item.account.stories?(
@@ -93,6 +107,12 @@ function Feed(){
                         </button>
                     </div>
                 </section>
+                <Modal isOpen={modalMyStories}
+                onRequestClose={controlModalMyStories}
+                className={`w-full h-screen p-0`}>
+                    <MyStories closeStories={controlModalMyStories}/>
+                </Modal>
+
                 <Modal isOpen={modalStories}
                 onRequestClose={controlModalStories}
                 className={`w-full h-screen p-0`}>

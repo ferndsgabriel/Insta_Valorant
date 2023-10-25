@@ -3,6 +3,7 @@ import neonperfil from "../assets/perfis/Neon.jpg"; import phoenixperfil from ".
 import reynaperfil from "../assets/perfis/Reyna.jpg";import razeperfil from "../assets/perfis/Raze.jpg";
 import sovaperfil from "../assets/perfis/Sova.jpg";import omenperfil from "../assets/perfis/Omen.jpg";
 import kjperfil from "../assets/perfis/Kj.jpg";import sageperfil from "../assets/perfis/Sage.jpg"; 
+import iperfil from "../assets/perfis/I.jpg"; 
 
 import breachstories1 from "../assets/stories/Breach1.jpg"; import breachstories2 from "../assets/stories/Breach2.jpg";
 import jettstories1 from "../assets/stories/Jett1.jpg"; import jettstories2 from "../assets/stories/Jett2.jpg";
@@ -14,6 +15,9 @@ import sovastories1 from "../assets/stories/Sova1.jpg"; import sovastories2 from
 import omenstories1 from "../assets/stories/Omen1.jpg"; import omenstories2 from "../assets/stories/Omen2.jpg";
 import kjstories1 from "../assets/stories/Kj1.jpg"; import kjstories2 from "../assets/stories/Kj2.jpg";
 import sagestories1 from "../assets/stories/Sage1.jpg"; import sagestories2 from "../assets/stories/Sage2.jpg";
+
+import istories1 from "../assets/stories/I1.jpg";import istories2 from "../assets/stories/I2.gif";
+import istories3 from "../assets/stories/I3.gif"; import istories4 from "../assets/stories/I4.gif";
 
 import breachpost from "../assets/post/Breach.jpg";
 import jettpost from "../assets/post/Jett.jpg";
@@ -28,6 +32,23 @@ import sagepost from "../assets/post/Sage.jpg";
 
 
 
+
+export const my = 
+    {
+        account:{
+            name:'Gabriel', perfil:iperfil,
+            stories:[
+                istories1, istories2,istories3, istories4
+            ],
+            post:[
+                {
+                    legend:`Eu sou o terremoto`,
+                    photo:breachpost,
+                    likes:10
+                }
+            ]
+        }
+    }
 
 export const users = [
     {

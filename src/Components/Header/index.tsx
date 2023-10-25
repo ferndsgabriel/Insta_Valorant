@@ -6,14 +6,14 @@ export default function Header(){
     return(
         <>
             <header className= "h-16 w-full md:hidden fixed top-0 z-10 bg-white">
-                <div className="w-full h-full flex flex-row items-center justify-between p-4 border-b-0.5 border-solid border-neutral-200 gap-1">
-                    <button className="flex items-center gap-2  hover:bg-neutral-200 duration-300">
+                <div className="w-full h-full 0 flex flex-row items-center justify-between p-4 border-b-0.5 border-solid border-neutral-200
+                gap-4">
+                    <button className="hover:bg-neutral-200 duration-300">
                         <img src={instagramlogo} alt="logo instagram"
                         className="w-32"/>
-                        <i><AiOutlineDown className="text-base"/></i>
                     </button>
-                    <div className="flex gap-4 flex-1">
-                        <label className="bg-neutral-200 flex items-center gap-2 p-1 rounded-md text-neutral-500 w-full">
+                    <div className="flex gap-4  w-full max-w-xs">
+                        <label className="bg-neutral-200 flex items-center gap-2 p-1 rounded-md text-neutral-500 w-full ">
                             <i><AiOutlineSearch/></i>
                             <span>Search</span>
                             <input type="text"
