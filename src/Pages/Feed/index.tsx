@@ -107,8 +107,12 @@ function Feed(){
                                 users[index].account.stories?(
                                     <div key={index} className="flex flex-col gap-4 w-full max-w-md border-solid border-b-0.5 py-4">
                                         <div className="flex items-center gap-3 capitalize font-medium text-sm">
+                                            <button
+                                            onClick={()=>{controlModalStories(); setIndexStories(index)}}>
                                             <img src={item.account.perfil}
                                             className="w-10 rounded-full aspect-square object-cover"/>
+                                            </button>
+
                                             <p>{item.account.name}</p>
                                         </div>
 
