@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    svg{
+        font-size: 24px;
+    }
+    a{
+        cursor: pointer;
+    }
+    .scroll::-webkit-scrollbar {
+        background-color: transparent;
+    }
+    .scroll::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+    .scroll::-webkit-scrollbar-track  {
+        background-color: transparent;
+    }
+    button{
+        cursor: pointer;
+        outline: none;
+        border: none;
+    }
+}
