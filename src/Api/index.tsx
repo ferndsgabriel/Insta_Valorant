@@ -42,9 +42,6 @@ export const my =
             ],
             post:[
                 {
-                    legend:`Eu sou o terremoto`,
-                    photo:breachpost,
-                    likes:10
                 }
             ]
         }
