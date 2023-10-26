@@ -69,7 +69,7 @@ export default function Stories({index, closeStories, usersWithStories}:indexSto
                         <AiOutlineClose className="text-white"/>
                     </button>
                 </div>
-                <div className=" w-full p-6 flex flex-row items-center justify-center max-w-4xl h-4/5 gap-4"> 
+                <div className=" w-full p-6 flex flex-row items-center justify-center max-w-4xl h-4/5 gap-4 select-none" translate="no"> 
                     <div className="hidden sm:block w-full h-full">
                         {userIndex >= 1 ?(
                             <button className="aspect-[9/16] overflow-hidden flex items-center justify-items-center
@@ -93,7 +93,7 @@ export default function Stories({index, closeStories, usersWithStories}:indexSto
                     </div>
 
                     <div className="aspect-[9/16] overflow-hidden flex items-center justify-items-center
-                    relative rounded-xl w-full max-w-xs">
+                    relative rounded-xl w-full max-w-xs select-none" translate="no">
                         <img src={users[userIndex].account.stories[currentStories]}
                         className="object-cover w-full h-full"/>
                         <div className="absolute top-6 left-2 flex items-center gap-2">
@@ -127,7 +127,7 @@ export default function Stories({index, closeStories, usersWithStories}:indexSto
                         </button>                       
                     </div>   
                     
-                    <div className="hidden sm:block w-full h-full md:flex items-center justify-center">
+                    <div className="hidden sm:block w-full h-full md:flex items-center justify-center select-none" translate="no">
                         {(userIndex + 1) < usersWithStories ?(
                             <button className="aspect-[9/16] overflow-hidden flex items-center justify-items-center
                             relative rounded-xl w-full scale-50"

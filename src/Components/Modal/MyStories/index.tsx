@@ -55,7 +55,7 @@ export default function MyStories({closeStories}:indexStories){
                         <AiOutlineClose className="text-white"/>
                     </button>
                 </div>
-                <div className=" w-full p-6 flex flex-row items-center justify-center max-w-4xl h-4/5 gap-4"> 
+                <div className=" w-full p-6 flex flex-row items-center justify-center max-w-4xl h-4/5 gap-4 select-none" translate="no"> 
 
                     <div className="aspect-[9/16] overflow-hidden flex items-center justify-items-center
                     relative rounded-xl w-full max-w-xs">

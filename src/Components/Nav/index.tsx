@@ -23,8 +23,7 @@ export default function Nav(){
 
                 <div className="w-full h-full flex p-4 items-center justify-between md:flex-col  md:py-6 xl:items-start">
                     <button className="hidden md:flex items-center hover:scale-110 duration-300 md:hover:bg-neutral-200 p-2 rounded-md
-
-                    dark:md:hover:bg-neutral-800">
+                    dark:md:hover:bg-neutral-800 select-none">
                         <i className="xl:hidden"><AiOutlineInstagram className="text-3xl"/></i>
                         <img src={logo} alt="logo instagram"
                         className="hidden xl:block  xl:dark:hidden w-24 "/>

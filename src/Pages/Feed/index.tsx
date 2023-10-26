@@ -93,7 +93,7 @@ function Feed(){
                             <button className="flex flex-col items-center justify-center flex-shrink-0 xl:hidden gap-1"
                             onClick={controlModalMyStories}>
                                 <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
-                                className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
+                                className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400 select-none"/>
                                 <p className="text-neutral-500  dark:text-neutral-400 text-xs">Your</p>
                             </button>
 
@@ -104,8 +104,8 @@ function Feed(){
                                         onClick={()=>{controlModalStories(); setIndexStories(index)}}>
                                             
                                             <img src={item.account.perfil} alt={`Foto de perfil de ${item.account.name}`}
-                                            className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-green-500"/>
-                                            <p className="text-xs">{item.account.name}</p>
+                                            className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-green-500 select-none"/>
+                                            <p className="text-xs" translate="no">{item.account.name}</p>
                                         </button>
                                     ):null
                                 )
@@ -147,9 +147,9 @@ function Feed(){
                                             <button
                                             onClick={()=>{controlModalStories(); setIndexStories(index)}}>
                                             <img src={item.account.perfil}
-                                            className="w-10 rounded-full aspect-square object-cover"/>
+                                            className="w-10 rounded-full aspect-square object-cover select-none"/>
                                             </button>
-                                            <p>{item.account.name}</p>
+                                            <p translate="no">{item.account.name}</p>
                                         </div>
                                         
                                         {users[index].account.post.map((postitem, postindex)=>{
@@ -180,7 +180,7 @@ function Feed(){
                                                             ) : (
                                                                 <p>{postitem.likes}</p>
                                                     )}
-                                                    <h1 className="text-sm"><strong>{item.account.name}</strong> {postitem.legend}</h1>
+                                                    <h1 className="text-sm"><strong translate="no">{item.account.name}</strong> {postitem.legend}</h1>
                                                 </div>
                                             )
                                         })}
@@ -197,8 +197,8 @@ function Feed(){
                             <button className="flex flex-row items-center gap-4 flex-shrink-0"
                             onClick={controlModalMyStories}>
                                 <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
-                                className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
-                                <p className="font-medium text-sm">{my.account.name}</p>
+                                className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400 select-none"/>
+                                <p className="font-medium text-sm" translate="no">{my.account.name}</p>
                             </button>
                             <button className="text-xs text-blue-500">
                                 Switch
@@ -216,7 +216,7 @@ function Feed(){
                                             <div className="flex flex-row items-center gap-2">
                                                 <img src={item.account.perfil} alt={`Foto de perfil ${item.account.name}`}
                                                 className="w-8 rounded-full aspect-square object-cover"/>
-                                                <p className="text-sm font-medium">{item.account.name}</p>
+                                                <p className="text-sm font-medium" translate="no">{item.account.name}</p>
                                             </div>
                                             <button className="text-blue-500 hover:text-blue-800 duration-300 text-xs">
                                                 Follow

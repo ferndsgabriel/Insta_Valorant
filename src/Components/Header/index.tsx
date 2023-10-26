@@ -10,7 +10,7 @@ export default function Header(){
             <header className= "h-16 w-full md:hidden fixed top-0 z-10 bg-white">
                 <div className="w-full h-full 0 flex flex-row items-center justify-between p-4 border-b-0.5 border-solid border-neutral-200
                 gap-4 dark:bg-black dark:border-neutral-800">
-                    <button className="hover:bg-neutral-200 duration-300 dark:hover:bg-neutral-800">
+                    <button className="hover:bg-neutral-200 duration-300 dark:hover:bg-neutral-800 select-none">
                         <img src={instagramlogo} alt="logo instagram"
                         className="w-32 dark:hidden"/>
                         <img src={instagramlogowhite} alt="logo instagram"
