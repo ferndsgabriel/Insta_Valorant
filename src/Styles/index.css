@@ -31,9 +31,6 @@
         border: none;
     }
     @media (prefers-color-scheme: dark) {
-        svg{
-            color: white;
-        }
         body{
             background-color: black;
             color: white;
