@@ -69,7 +69,7 @@ export const my =
         account:{
             name:'Gabriel', perfil:iperfil,
             stories:[
-                istories1, istories3
+                istories1,istories4, istories3
             ],
             post:[
                 {
@@ -102,7 +102,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Rápido como o vento.`,
+                    legend:`Rápida como o vento.`,
                     photo:jettpost,
                     likes:350
                 }
