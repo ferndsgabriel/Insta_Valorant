@@ -16,8 +16,8 @@ import omenstories1 from "../assets/stories/Omen1.jpg"; import omenstories2 from
 import kjstories1 from "../assets/stories/Kj1.jpg"; import kjstories2 from "../assets/stories/Kj2.jpg";
 import sagestories1 from "../assets/stories/Sage1.jpg"; import sagestories2 from "../assets/stories/Sage2.jpg";
 
-import istories1 from "../assets/stories/I1.jpg";import istories2 from "../assets/stories/I2.gif";
-import istories3 from "../assets/stories/I3.gif"; import istories4 from "../assets/stories/I4.gif";
+import istories1 from "../assets/stories/I1.gif";import istories2 from "../assets/stories/I2.gif";
+import istories3 from "../assets/stories/I3.gif";
 
 import breachpost from "../assets/post/Breach.jpg";
 import jettpost from "../assets/post/Jett.jpg";
@@ -69,7 +69,7 @@ export const my =
         account:{
             name:'Gabriel', perfil:iperfil,
             stories:[
-                istories2,istories3, istories4, ,istories1
+                istories1,istories2,istories3
             ],
             post:[
                 {
