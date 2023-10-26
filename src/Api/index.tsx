@@ -38,7 +38,7 @@ export const my =
         account:{
             name:'Gabriel', perfil:iperfil,
             stories:[
-                istories1, istories3,
+                istories1, istories3, istories4
             ],
             post:[
                 {
