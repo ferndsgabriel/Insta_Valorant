@@ -1327,8 +1327,20 @@ button{
     max-width: none;
   }
 
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+
   .xl\:items-start {
     align-items: flex-start;
+  }
+
+  .xl\:gap-14 {
+    gap: 3.5rem;
+  }
+
+  .xl\:p-0 {
+    padding: 0px;
   }
 
   .xl\:px-8 {

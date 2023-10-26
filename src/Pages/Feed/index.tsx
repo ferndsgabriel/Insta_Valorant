@@ -85,7 +85,7 @@ function Feed(){
             }
             
             <div className="w-full md:max-w-xl mx-auto px-2 py-10 mb-14 lg:max-w-2xl xl:max-w-none xl:w-desktop xl:ml-64
-            xl:flex flex-row xl:px-8 gap-14 overflow-x-hidden">
+            flex flex-col xl:flex-row xl:px-8 xl:gap-14 overflow-x-hidden gap-8">
 
                 <main className="flex flex-col gap-4 items-center">
                     <section className="w-full relative">   
@@ -228,7 +228,7 @@ function Feed(){
                         </div>
                     </article>
 
-                    <footer className="w-full flex flex-col gap-4">
+                    <footer className="w-full flex flex-col gap-4 p-4 xl:p-0">
                         <ul className="text-xs text-neutral-300 flex items-center flex-wrap  gap-2 dark:text-neutral-500">
                             <li className="hover:underline cursor-pointer">About</li>
                             <li className="hover:underline cursor-pointer">Help</li>
