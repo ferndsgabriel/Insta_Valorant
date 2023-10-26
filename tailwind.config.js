@@ -20,10 +20,13 @@ module.exports = {
       keyframes:{
         'processStories':{
           '0%':{
-            transform:'translateX(-200px)'
+            transform:'translateX(-90%)'
+          },
+          '80%':{
+            transform:'translateX(-10%)'
           },
           '100%':{
-            transform:'translateX(0)'
+            transform:'translateX(0%)'
           }
         }
       },
