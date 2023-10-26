@@ -163,7 +163,7 @@ function Feed(){
                     </section>
                 </div>
 
-                <article className="w-[480px] flex flex-col gap-4">
+                <article className="w-[480px] flex-col gap-4 hidden lx:flex">
                     <div className="flex items-center justify-between gap-2">
                         <button className="flex flex-row items-center gap-4 flex-shrink-0"
                         onClick={controlModalMyStories}>
