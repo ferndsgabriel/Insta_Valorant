@@ -1,9 +1,10 @@
 import instagramlogo from "../../assets/instalogofull.png";
 import instagramlogowhite from "../../assets/instalogofullwhite.png";
-import {AiOutlineSearch,AiOutlineDown} from "react-icons/ai"; 
+import {AiOutlineSearch} from "react-icons/ai"; 
 import {FiHeart} from "react-icons/fi";
 
 export default function Header(){
+
     return(
         <>
             <header className= "h-16 w-full md:hidden fixed top-0 z-10 bg-white">

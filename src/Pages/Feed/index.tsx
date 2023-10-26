@@ -1,7 +1,7 @@
 import Header from "../../Components/Header";
 import Nav from "../../Components/Nav";
 import { users, my, suggested } from "../../Api";
-import {AiOutlineRight, AiOutlineLeft,AiOutlineHeart} from "react-icons/ai";
+import {AiOutlineRight, AiOutlineLeft,AiOutlineHeart,AiFillHeart} from "react-icons/ai";
 import {BiMessageRounded} from "react-icons/bi";
 import {MdSaveAlt} from "react-icons/md";
 import {TbLocationShare} from "react-icons/tb";
@@ -12,12 +12,15 @@ import MyStories from "../../Components/Modal/MyStories";
 
 function Feed(){
     const storiesRef = useRef<HTMLDivElement>(null);
+    const [userDate, setUserDate] = useState (users)
     const [buttonLeftStories, setButtonLeftStories] = useState(false);
     const [modalStories, setModalStories] = useState(false);
     const [modalMyStories, setModalMyStories] = useState(false);
     const [indexStories, setIndexStories] = useState(0);
     const [usersWithStories, setUsersWithStories] = useState(0);
+    const [indexPostLiked, setIndexPostLiked] = useState([{users:'', post:0}]);
     
+
     function scrollStories(value:number){
         if (storiesRef.current !== null){
             storiesRef.current.scrollBy({
@@ -55,7 +58,20 @@ function Feed(){
     useEffect(()=>{
         getAboutUsersStories()
     },[Feed])
+    
 
+    function likedPost(user:string, post:number){
+        const isLiked = indexPostLiked.some((item) => item.users === user && item.post === post);
+        if (isLiked) {
+            const updatedIndexPostLiked = indexPostLiked.filter((item) => !(item.users === user && item.post === post));
+            setIndexPostLiked(updatedIndexPostLiked);
+        } else {
+            const updatedIndexPostLiked = [...indexPostLiked, { users: user, post: post }];
+            setIndexPostLiked(updatedIndexPostLiked);
+        }
+    }
+
+    
     return(
         <>  
             {modalStories || modalMyStories ?(
@@ -68,10 +84,10 @@ function Feed(){
                 )
             }
             
-            <main className="w-full md:max-w-xl mx-auto px-2 py-10 mb-64 lg:max-w-2xl xl:max-w-none xl:w-desktop xl:ml-64
+            <div className="w-full md:max-w-xl mx-auto px-2 py-10 mb-14 lg:max-w-2xl xl:max-w-none xl:w-desktop xl:ml-64
             xl:flex flex-row xl:px-8 gap-14 ">
 
-                <div className="flex flex-col gap-4 items-center">
+                <main className="flex flex-col gap-4 items-center">
                     <section className="w-full relative">   
                         <div className="flex items-center gap-6 overflow-auto scroll" ref={storiesRef}>
                             <button className="flex flex-col items-center justify-center flex-shrink-0 xl:hidden gap-1"
@@ -81,11 +97,12 @@ function Feed(){
                                 <p className="text-neutral-500  dark:text-neutral-400 text-xs">Your</p>
                             </button>
 
-                            {users.map((item,index)=>{
+                            {userDate.map((item,index)=>{
                                 return(
                                     item.account.stories?(
                                         <button key={index} className="flex flex-col items-center justify-center flex-shrink-0 gap-1"
                                         onClick={()=>{controlModalStories(); setIndexStories(index)}}>
+                                            
                                             <img src={item.account.perfil} alt={`Foto de perfil de ${item.account.name}`}
                                             className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-green-500"/>
                                             <p className="text-xs">{item.account.name}</p>
@@ -132,26 +149,37 @@ function Feed(){
                                             <img src={item.account.perfil}
                                             className="w-10 rounded-full aspect-square object-cover"/>
                                             </button>
-
                                             <p>{item.account.name}</p>
                                         </div>
-
-                                        {users[index].account.post.map((postitem,postindex)=>{
+                                        
+                                        {users[index].account.post.map((postitem, postindex)=>{
                                             return(
                                                 <div className="flex flex-col gap-4">
-                                                    <img src={postitem.photo}
-                                                    className="w-full aspect-square object-cover rounded-md"/>
+                                                    <button onDoubleClick={()=>likedPost(item.account.name, postindex)}>
+                                                        <img src={postitem.photo}
+                                                        className="w-full aspect-square object-cover rounded-md"/>
+                                                    </button>
                                                     <span className="w-full flex items-center justify-between">
                                                         <div className="flex items-center gap-2">
-                                                            <button className="hover:text-neutral-400 duration-300"><AiOutlineHeart/></button>
+                                                            <button onClick={()=>likedPost(item.account.name, postindex)} 
+                                                            className="hover:text-neutral-400 duration-300">
+                                                                {indexPostLiked.some((postLikedValue)=>postLikedValue.users === item.account.name && postLikedValue.post === postindex)?(
+                                                                    <AiFillHeart className="text-red-500"/>
+                                                                ):(
+                                                                    <AiOutlineHeart/>
+                                                                )}
+                                                                
+                                                            </button>
                                                             <button className="hover:text-neutral-400 duration-300"><BiMessageRounded/></button>  
                                                             <button className="hover:text-neutral-400 duration-300"><TbLocationShare/></button> 
                                                         </div>
                                                         <button className="hover:text-neutral-400 duration-300"><MdSaveAlt/></button>
                                                     </span>
-                                                    {postitem.likes > 0 ?(
-                                                        <span className="text-sm font-medium">{postitem.likes} likes</span>
-                                                    ):null}
+                                                    {indexPostLiked.some((itemPostLiked)=>itemPostLiked.users === item.account.name && itemPostLiked.post === postindex)?(
+                                                            <p>{postitem.likes + 1}</p>
+                                                            ) : (
+                                                                <p>{postitem.likes}</p>
+                                                    )}
                                                     <h1 className="text-sm"><strong>{item.account.name}</strong> {postitem.legend}</h1>
                                                 </div>
                                             )
@@ -161,45 +189,63 @@ function Feed(){
                             )
                         })}
                     </section>
-                </div>
-
-                <article className="w-[480px] flex-col gap-4 hidden lg:flex">
-                    <div className="flex items-center justify-between gap-2">
-                        <button className="flex flex-row items-center gap-4 flex-shrink-0"
-                        onClick={controlModalMyStories}>
-                            <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
-                            className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
-                            <p className="font-medium text-sm">{my.account.name}</p>
-                        </button>
-                        <button className="text-xs text-blue-500">
-                            Switch
-                        </button>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <div className="flex items-center justify-between">
-                            <h3 className="font-medium text-neutral-500 text-sm">Suggested for you</h3>
-                            <button className="text-sm hover:text-neutral-400 duration-300">See All</button>
+                </main>
+                
+                <div className="w-[480px] flex flex-col gap-8">
+                    <article className=" w-full flex-col gap-4 hidden lg:flex">
+                        <div className="flex items-center justify-between gap-2">
+                            <button className="flex flex-row items-center gap-4 flex-shrink-0"
+                            onClick={controlModalMyStories}>
+                                <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
+                                className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
+                                <p className="font-medium text-sm">{my.account.name}</p>
+                            </button>
+                            <button className="text-xs text-blue-500">
+                                Switch
+                            </button>
                         </div>
                         <div className="flex flex-col gap-4">
-                            {suggested.map((item,index)=>{
-                                return(
-                                    <button key={index} className="flex items-center justify-between">
-                                        <div className="flex flex-row items-center gap-2">
-                                            <img src={item.account.perfil} alt={`Foto de perfil ${item.account.name}`}
-                                            className="w-8 rounded-full aspect-square object-cover"/>
-                                            <p className="text-sm font-medium">{item.account.name}</p>
-                                        </div>
-                                        <button className="text-blue-500 hover:text-blue-800 duration-300 text-xs">
-                                            Follow
+                            <div className="flex items-center justify-between">
+                                <h3 className="font-medium text-neutral-500 text-sm">Suggested for you</h3>
+                                <button className="text-sm hover:text-neutral-400 duration-300">See All</button>
+                            </div>
+                            <div className="flex flex-col gap-4">
+                                {suggested.map((item,index)=>{
+                                    return(
+                                        <button key={index} className="flex items-center justify-between">
+                                            <div className="flex flex-row items-center gap-2">
+                                                <img src={item.account.perfil} alt={`Foto de perfil ${item.account.name}`}
+                                                className="w-8 rounded-full aspect-square object-cover"/>
+                                                <p className="text-sm font-medium">{item.account.name}</p>
+                                            </div>
+                                            <button className="text-blue-500 hover:text-blue-800 duration-300 text-xs">
+                                                Follow
+                                            </button>
                                         </button>
-                                    </button>
-                                )
-                            })}
+                                    )
+                                })}
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-            </main>
+                    <footer className="w-full flex flex-col gap-4">
+                        <ul className="text-xs text-neutral-300 flex items-center flex-wrap  gap-2 dark:text-neutral-500">
+                            <li className="hover:underline cursor-pointer">About</li>
+                            <li className="hover:underline cursor-pointer">Help</li>
+                            <li className="hover:underline cursor-pointer">Press</li>
+                            <li className="hover:underline cursor-pointer">API</li>
+                            <li className="hover:underline cursor-pointer">Jobs</li>
+                            <li className="hover:underline cursor-pointer">Privacy</li>
+                            <li className="hover:underline cursor-pointer">Terms</li>
+                            <li className="hover:underline cursor-pointer">Locations</li>
+                            <li className="hover:underline cursor-pointer">Language</li>
+                            <li className="hover:underline cursor-pointer">Meta Verifield</li>
+                            <li className="hover:underline cursor-pointer">Jobs</li>
+                        </ul>
+                        <span className="text-xs text-neutral-300 dark:text-neutral-500">© 2023 INSTAGRAM FROM META </span>
+                    </footer>
+                </div>
+            </div>
         </>
     )
 }
