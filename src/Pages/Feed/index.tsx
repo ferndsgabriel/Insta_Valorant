@@ -77,7 +77,7 @@ function Feed(){
                         <button className="flex flex-col items-center justify-center flex-shrink-0"
                         onClick={controlModalMyStories}>
                             <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
-                            className="w-18 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
+                            className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
                             <p className="text-neutral-500">Your</p>
                         </button>
 
