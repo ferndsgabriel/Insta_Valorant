@@ -69,7 +69,7 @@ export const my =
         account:{
             name:'Gabriel', perfil:iperfil,
             stories:[
-                istories4, istories3,istories1
+                istories2,istories3, istories4, ,istories1
             ],
             post:[
                 {
