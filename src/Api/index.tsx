@@ -67,7 +67,7 @@ export const suggested = [
 export const my = 
     {
         account:{
-            name:'Gabriel', perfil:iperfil,
+            name:'ferndsgabriel', perfil:iperfil,
             stories:[
                 istories1,istories2,istories3
             ],
