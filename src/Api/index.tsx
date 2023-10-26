@@ -86,7 +86,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Eu sou o terremoto`,
+                    legend:`I'm the earthquake`,
                     photo:breachpost,
                     likes:10
                 }
@@ -101,7 +101,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Rápida como o vento.`,
+                    legend:`Fast as the wind.`,
                     photo:jettpost,
                     likes:350
                 }
@@ -116,7 +116,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Vocês são lerdos.`,
+                    legend:`You are slow.`,
                     photo:neonpost,
                     likes:86
                 }
@@ -131,7 +131,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Queime comigo, ou fique longe do fogo!`,
+                    legend:`Burn with me, or stay away from the fire!`,
                     photo:phoenixpost,
                     likes:220
                 }
@@ -146,7 +146,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Ninguém explodiu? O que está acontecendo?`,
+                    legend:`Nobody exploded? What is happening?`,
                     photo:razepost,
                     likes:54
                 }
@@ -161,7 +161,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Eu não posso morrer aqui.`,
+                    legend:`I can't die here.`,
                     photo:reynapost,
                     likes:280
                 }
@@ -176,7 +176,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Encontrei-os. E agora?`,
+                    legend:`I found them. And now?`,
                     photo:sovapost,
                     likes:98
                 }
@@ -191,7 +191,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Não fuja do inevitável.`,
+                    legend:`Don't run away from the inevitable.`,
                     photo:omenpost,
                     likes:12
                 }
@@ -206,7 +206,7 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Sistema ativado.`,
+                    legend:`System activated.`,
                     photo:kjpost,
                     likes:194
                 }
@@ -221,9 +221,9 @@ export const users = [
             ],
             post:[
                 {
-                    legend:`Curem essas feridas, pessoal.`,
+                    legend:`Heal those wounds, everyone.`,
                     photo:sagepost,
-                    likes:194
+                    likes:500
                 }
             ]
         }
