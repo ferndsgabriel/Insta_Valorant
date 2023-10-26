@@ -85,7 +85,7 @@ function Feed(){
             }
             
             <div className="w-full md:max-w-xl mx-auto px-2 py-10 mb-14 lg:max-w-2xl xl:max-w-none xl:w-desktop xl:ml-64
-            xl:flex flex-row xl:px-8 gap-14 ">
+            xl:flex flex-row xl:px-8 gap-14 overflow-x-hidden">
 
                 <main className="flex flex-col gap-4 items-center">
                     <section className="w-full relative">   
