@@ -83,11 +83,11 @@ export default function MyStories({closeStories}:indexStories){
                         </div>
                         <button onClick={()=>{controlcurrentStories(-1)}}
                         className="absolute left-2 bg-neutral-200 rounded-full p-1">
-                            <AiOutlineLeft className="opacity-60 text-base"/>
+                            <AiOutlineLeft className="opacity-60 text-base text-black"/>
                         </button>     
                         <button onClick={()=>controlcurrentStories(1)}
                         className="absolute right-2 bg-neutral-200 rounded-full p-1">
-                            <AiOutlineRight className="opacity-60 text-base"/>
+                            <AiOutlineRight className="opacity-60 text-base  text-black"/>
                         </button>                       
                     </div>   
 

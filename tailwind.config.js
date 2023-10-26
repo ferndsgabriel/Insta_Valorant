@@ -8,13 +8,8 @@ module.exports = {
       borderWidth:{
         '0.5':'1px'
       },
-
-      height:{
-        'screenmobile':'calc(100vh - 112px)',
-      },
-
       width:{
-        'desktop':'calc(100% - 64px)'
+        'desktop':'calc(100% - 256px)'
       },
 
       keyframes:{

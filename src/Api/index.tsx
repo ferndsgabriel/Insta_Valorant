@@ -30,9 +30,40 @@ import omenpost from "../assets/post/Omen.jpg";
 import kjpost from "../assets/post/Kj.jpg";
 import sagepost from "../assets/post/Sage.jpg";
 
+import suggestedBrimstone from  "../assets/suggested/Brimstone.jpg";
+import suggestedYoru from  "../assets/suggested/Yoru.jpg";
+import suggestedDeadlock from  "../assets/suggested/Deadlock.jpg";
+import suggestedGekko from  "../assets/suggested/Gekko.jpg";
+import suggestedCypher from  "../assets/suggested/Cypher.jpg";
 
 
-
+export const suggested = [
+    {
+        account:{
+            name:'Brimstone', perfil:suggestedBrimstone,
+        },
+    },
+    {
+        account:{
+            name:'Cypher', perfil:suggestedCypher,
+        },
+    },
+    {
+        account:{
+            name:'Deadlock', perfil:suggestedDeadlock,
+        },
+    },
+    {
+        account:{
+            name:'Gekko', perfil:suggestedGekko,
+        },
+    },
+    {
+        account:{
+            name:'Yoru', perfil:suggestedYoru,
+        },
+    },
+] 
 export const my = 
     {
         account:{

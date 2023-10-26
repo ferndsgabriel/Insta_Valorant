@@ -18,9 +18,38 @@
     .scroll::-webkit-scrollbar-track  {
         background-color: transparent;
     }
+    .scroll::-webkit-scrollbar-thumb:hover {
+        background-color: transparent;
+    }
+    
+    .scroll::-webkit-scrollbar-thumb:active {
+        background-color: transparent;
+    }
     button{
         cursor: pointer;
         outline: none;
         border: none;
+    }
+    @media (prefers-color-scheme: dark) {
+        svg{
+            color: white;
+        }
+        body{
+            background-color: black;
+            color: white;
+        }
+        ::-webkit-scrollbar {
+            background-color: rgb(56, 56, 56);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(66, 66, 66);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(88, 88, 88);
+        }
+        
+        ::-webkit-scrollbar-thumb:active {
+            background-color: rgb(88, 88, 88);
+        }
     }
 }

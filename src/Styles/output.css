@@ -454,10 +454,45 @@ a{
   background-color: transparent;
 }
 
+.scroll::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb:active {
+  background-color: transparent;
+}
+
 button{
   cursor: pointer;
   outline: none;
   border: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  svg{
+    color: white;
+  }
+
+  body{
+    background-color: black;
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    background-color: rgb(56, 56, 56);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(66, 66, 66);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(88, 88, 88);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: rgb(88, 88, 88);
+  }
 }
 
 *, ::before, ::after {
@@ -662,6 +697,23 @@ button{
   z-index: 10;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-64 {
+  margin-bottom: 16rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .block {
   display: block;
 }
@@ -706,10 +758,6 @@ button{
   height: 100vh;
 }
 
-.h-screenmobile {
-  height: calc(100vh - 112px);
-}
-
 .w-1 {
   width: 0.25rem;
 }
@@ -742,16 +790,32 @@ button{
   width: 100%;
 }
 
+.w-desktop {
+  width: calc(100% - 256px);
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-\[520px\] {
+  width: 520px;
+}
+
+.w-\[480px\] {
+  width: 480px;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
 .max-w-4xl {
   max-width: 56rem;
 }
 
 .max-w-md {
   max-width: 28rem;
-}
-
-.max-w-xl {
-  max-width: 36rem;
 }
 
 .max-w-xs {
@@ -872,6 +936,14 @@ button{
   gap: 1.5rem;
 }
 
+.gap-14 {
+  gap: 3.5rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
 .overflow-auto {
   overflow: auto;
 }
@@ -960,6 +1032,21 @@ button{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   object-fit: cover;
 }
@@ -984,6 +1071,11 @@ button{
   padding: 1.5rem;
 }
 
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -997,6 +1089,16 @@ button{
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .text-3xl {
@@ -1014,12 +1116,22 @@ button{
   line-height: 1.25rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-medium {
   font-weight: 500;
 }
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-neutral-500 {
@@ -1032,6 +1144,36 @@ button{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-blue-700 {
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
+.text-blue-400 {
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity));
+}
+
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+
+.text-neutral-800 {
+  --tw-text-opacity: 1;
+  color: rgb(38 38 38 / var(--tw-text-opacity));
+}
+
+.text-neutral-600 {
+  --tw-text-opacity: 1;
+  color: rgb(82 82 82 / var(--tw-text-opacity));
+}
+
+.text-neutral-400 {
+  --tw-text-opacity: 1;
+  color: rgb(163 163 163 / var(--tw-text-opacity));
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -1042,6 +1184,10 @@ button{
 
 .duration-300 {
   transition-duration: 300ms;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
 }
 
 .hover\:scale-110:hover {
@@ -1061,12 +1207,57 @@ button{
   color: rgb(163 163 163 / var(--tw-text-opacity));
 }
 
-@media (min-width: 640px) {
-  .sm\:mx-auto {
-    margin-left: auto;
-    margin-right: auto;
+.hover\:text-blue-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity));
+}
+
+.hover\:text-neutral-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(115 115 115 / var(--tw-text-opacity));
+}
+
+.hover\:text-neutral-300:hover {
+  --tw-text-opacity: 1;
+  color: rgb(212 212 212 / var(--tw-text-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:block {
+    display: block;
   }
 
+  .dark\:hidden {
+    display: none;
+  }
+
+  .dark\:border-neutral-800 {
+    --tw-border-opacity: 1;
+    border-color: rgb(38 38 38 / var(--tw-border-opacity));
+  }
+
+  .dark\:bg-black {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  }
+
+  .dark\:bg-neutral-800 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  }
+
+  .dark\:text-neutral-400 {
+    --tw-text-opacity: 1;
+    color: rgb(163 163 163 / var(--tw-text-opacity));
+  }
+
+  .dark\:hover\:bg-neutral-800:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  }
+}
+
+@media (min-width: 640px) {
   .sm\:block {
     display: block;
   }
@@ -1093,8 +1284,8 @@ button{
     width: 4rem;
   }
 
-  .md\:w-desktop {
-    width: calc(100% - 64px);
+  .md\:max-w-xl {
+    max-width: 36rem;
   }
 
   .md\:flex-col {
@@ -1128,6 +1319,15 @@ button{
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  @media (min-width: 768px) {
+    .dark\:md\:hover\:bg-neutral-800:hover {
+      --tw-bg-opacity: 1;
+      background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   .lg\:max-w-2xl {
     max-width: 42rem;
@@ -1135,8 +1335,16 @@ button{
 }
 
 @media (min-width: 1280px) {
+  .xl\:ml-64 {
+    margin-left: 16rem;
+  }
+
   .xl\:block {
     display: block;
+  }
+
+  .xl\:flex {
+    display: flex;
   }
 
   .xl\:hidden {
@@ -1151,7 +1359,30 @@ button{
     width: 100%;
   }
 
+  .xl\:w-desktop {
+    width: calc(100% - 256px);
+  }
+
+  .xl\:max-w-none {
+    max-width: none;
+  }
+
   .xl\:items-start {
     align-items: flex-start;
+  }
+
+  .xl\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .xl\:dark\:block {
+      display: block;
+    }
+
+    .xl\:dark\:hidden {
+      display: none;
+    }
   }
 }

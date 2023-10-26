@@ -1,6 +1,6 @@
 import Header from "../../Components/Header";
 import Nav from "../../Components/Nav";
-import { users, my } from "../../Api";
+import { users, my, suggested } from "../../Api";
 import {AiOutlineRight, AiOutlineLeft,AiOutlineHeart} from "react-icons/ai";
 import {BiMessageRounded} from "react-icons/bi";
 import {MdSaveAlt} from "react-icons/md";
@@ -21,7 +21,7 @@ function Feed(){
     function scrollStories(value:number){
         if (storiesRef.current !== null){
             storiesRef.current.scrollBy({
-                behavior:'smooth',
+                behavior:'auto',
                 top:0,
                 left:value
             })
@@ -68,64 +68,64 @@ function Feed(){
                 )
             }
             
-            <main
-            className="w-full h-screenmobile md:h-screen p-2 flex flex-col gap-6 md:w-desktop items-center max-w-xl sm:mx-auto lg:max-w-2xl">
-                <section className="w-full">
-                    <div className="relative">    
-                        <div className="flex items-center gap-6 overflow-auto scroll" ref={storiesRef}>
+            <main className="w-full md:max-w-xl mx-auto px-2 py-10 mb-64 lg:max-w-2xl xl:max-w-none xl:w-desktop xl:ml-64
+            xl:flex flex-row xl:px-8 gap-14 ">
 
-                        <button className="flex flex-col items-center justify-center flex-shrink-0"
-                        onClick={controlModalMyStories}>
-                            <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
-                            className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
-                            <p className="text-neutral-500">Your</p>
-                        </button>
+                <div className="flex flex-col gap-4 items-center">
+                    <section className="w-full relative">   
+                        <div className="flex items-center gap-6 overflow-auto scroll" ref={storiesRef}>
+                            <button className="flex flex-col items-center justify-center flex-shrink-0 xl:hidden gap-1"
+                            onClick={controlModalMyStories}>
+                                <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
+                                className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
+                                <p className="text-neutral-500  dark:text-neutral-400 text-xs">Your</p>
+                            </button>
 
                             {users.map((item,index)=>{
                                 return(
                                     item.account.stories?(
-                                        <button key={index} className="flex flex-col items-center justify-center flex-shrink-0"
+                                        <button key={index} className="flex flex-col items-center justify-center flex-shrink-0 gap-1"
                                         onClick={()=>{controlModalStories(); setIndexStories(index)}}>
                                             <img src={item.account.perfil} alt={`Foto de perfil de ${item.account.name}`}
                                             className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-green-500"/>
-                                            <p>{item.account.name}</p>
+                                            <p className="text-xs">{item.account.name}</p>
                                         </button>
                                     ):null
                                 )
                             })}
                         </div>
+
                         {buttonLeftStories?(
                             <button className="bg-white p-1 rounded-full absolute top-1/3 -translate-y-1/3 left-2"
-                            onClick={()=>scrollStories(-50)}>
+                            onClick={()=>scrollStories(-400)}>
                                 <AiOutlineLeft className="text-base text-neutral-500"/>
                             </button>
                         ):null}
 
                         <button className="bg-white p-1 rounded-full absolute top-1/3 -translate-y-1/3 right-2"
-                        onClick={()=>scrollStories(50)}>
+                        onClick={()=>scrollStories(400)}>
                             <AiOutlineRight className="text-base text-neutral-500"/>
                         </button>
-                    </div>
-                </section>
-                <Modal isOpen={modalMyStories}
-                onRequestClose={controlModalMyStories}
-                className={`w-full h-screen p-0`}>
-                    <MyStories closeStories={controlModalMyStories}/>
-                </Modal>
+                    </section>
+                    <Modal isOpen={modalMyStories}
+                    onRequestClose={controlModalMyStories}
+                    className={`w-full h-screen p-0`}>
+                        <MyStories closeStories={controlModalMyStories}/>
+                    </Modal>
 
-                <Modal isOpen={modalStories}
-                onRequestClose={controlModalStories}
-                className={`w-full h-screen p-0`}>
-                    <Stories index={indexStories} closeStories={controlModalStories}
-                    usersWithStories={usersWithStories}/>
-                </Modal>
+                    <Modal isOpen={modalStories}
+                    onRequestClose={controlModalStories}
+                    className={`w-full h-screen p-0`}>
+                        <Stories index={indexStories} closeStories={controlModalStories}
+                        usersWithStories={usersWithStories}/>
+                    </Modal>
 
-                <section>
-                    <div className="">
+                    <section className="w-full flex flex-col items-center">
                         {users.map((item, index)=>{
                             return(
                                 users[index].account.stories?(
-                                    <div key={index} className="flex flex-col gap-4 w-full max-w-md border-solid border-b-0.5 py-4">
+                                    <div key={index} className="flex flex-col gap-4 w-full max-w-md border-solid border-b-0.5 py-4
+                                    dark:border-neutral-800">
                                         <div className="flex items-center gap-3 capitalize font-medium text-sm">
                                             <button
                                             onClick={()=>{controlModalStories(); setIndexStories(index)}}>
@@ -160,8 +160,45 @@ function Feed(){
                                 ):null
                             )
                         })}
+                    </section>
+                </div>
+
+                <article className="w-[480px] flex flex-col gap-4">
+                    <div className="flex items-center justify-between gap-2">
+                        <button className="flex flex-row items-center gap-4 flex-shrink-0"
+                        onClick={controlModalMyStories}>
+                            <img src={my.account.perfil} alt={`Foto de perfil de ${my.account.name}`}
+                            className="w-16 rounded-full aspect-square object-cover border-solid border-2 border-neutral-400"/>
+                            <p className="font-medium text-sm">{my.account.name}</p>
+                        </button>
+                        <button className="text-xs text-blue-500">
+                            Switch
+                        </button>
                     </div>
-                </section>
+                    <div className="flex flex-col gap-4">
+                        <div className="flex items-center justify-between">
+                            <h3 className="font-medium text-neutral-500 text-sm">Suggested for you</h3>
+                            <button className="text-sm hover:text-neutral-400 duration-300">See All</button>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            {suggested.map((item,index)=>{
+                                return(
+                                    <button key={index} className="flex items-center justify-between">
+                                        <div className="flex flex-row items-center gap-2">
+                                            <img src={item.account.perfil} alt={`Foto de perfil ${item.account.name}`}
+                                            className="w-8 rounded-full aspect-square object-cover"/>
+                                            <p className="text-sm font-medium">{item.account.name}</p>
+                                        </div>
+                                        <button className="text-blue-500 hover:text-blue-800 duration-300 text-xs">
+                                            Follow
+                                        </button>
+                                    </button>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </article>
+
             </main>
         </>
     )
