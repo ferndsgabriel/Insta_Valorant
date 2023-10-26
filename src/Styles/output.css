@@ -1329,6 +1329,10 @@ button{
 }
 
 @media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:max-w-2xl {
     max-width: 42rem;
   }
